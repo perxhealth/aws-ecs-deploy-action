@@ -1,0 +1,8 @@
+.eslintignore
+.eslintrc.yaml
+.git/
+.github/
+.gitignore
+.prettierignore
+.prettierrc.yaml
+.tool-versions
