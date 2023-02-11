@@ -14,7 +14,7 @@ As an example, add the following `step` to a GitHub Actions workflow.
 
 ```yaml
 - name: 🚀 Deploy QA
-  uses: perxhealth/aws-ecs-deploy@v1
+  uses: perxhealth/aws-ecs-deploy-action@v1
   with:
     perx-env: qa
     perx-region: au
