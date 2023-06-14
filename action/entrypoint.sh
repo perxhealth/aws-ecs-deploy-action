@@ -83,7 +83,7 @@ h1 "Preflight Step 2: Prepare task definition"
 # that the following env vars are present FARGATE_CPU_SIZE, FARGATE_MEMORY_SIZE,
 # CONTAINER_PORT etc
 
-cp $INPUT_TASK-DEFINITION /work/task-definition.tpl.json
+cp "$INPUT_TASK-DEFINITION" /work/task-definition.tpl.json
 success "Task definition prepared OK"
 
 # ----- Prepare final environment -----
