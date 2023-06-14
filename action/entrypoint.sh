@@ -6,7 +6,7 @@ base64 -d <<<"CgogIF9fX19fICAgICAgICAgICAgICAgICBfX19fX18gX19fX18gIF9fX19fICAgX1
 
 # Designed for use at Perx Health, this script allows us to easily deploy new
 # images as ECS tasks with blue-green cutover assistance from CodeDeploy
-source /action/common.sh
+source /work/common.sh
 info "Getting things started..."
 
 # ----- Check preflight variables -----
