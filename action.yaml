@@ -4,12 +4,6 @@ branding:
   icon: upload-cloud
   color: blue
 inputs:
-  aws-access-key-id:
-    description: AWS_ACCESS_KEY_ID used to invoke AWS services
-    required: true
-  aws-secret-access-key:
-    description: AWS_SECRET_ACCESS_KEY used to invoke AWS services
-    required: true
   perx-env:
     type: choice
     description: Nominate the environment in which we're deploying
@@ -40,8 +34,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.aws-access-key-id }}
-    - ${{ inputs.aws-secret-access-key }}
     - ${{ inputs.perx-env }}
     - ${{ inputs.perx-region }}
     - ${{ inputs.perx-app-name }}

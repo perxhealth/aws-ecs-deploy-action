@@ -60,10 +60,6 @@ fi
 # If we've come this far, we're all good in terms of required vars!
 success "Required environment variables OK"
 
-# Set AWS credentials so the CLI can find them
-export AWS_ACCESS_KEY_ID=$INPUT_AWS-ACCESS-KEY-ID
-export AWS_SECRET_ACCESS_KEY=$INPUT_AWS-SECRET-ACCESS-KEY
-
 # Apply defaults to optional parameters which we'll be using either way
 export AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID:-721636788304}
 export AWS_ACCOUNT_NAME=${AWS_ACCOUNT_NAME:-nonprod}
