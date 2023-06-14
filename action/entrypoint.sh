@@ -42,13 +42,13 @@ if [ -z "$INPUT_IMAGE-TAG" ]; then
   exit 1
 fi
 
-if [ -z "$AWS_ACCESS_KEY_ID" ]; then
-  error "\"\$AWS_ACCESS_KEY_ID\" must be set"
+if [ -z "$INPUT_AWS-ACCESS-KEY-ID" ]; then
+  error "\"\$INPUT_AWS-ACCESS-KEY-ID\" must be set"
   exit 1
 fi
 
-if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
-  error "\"\$AWS_SECRET_ACCESS_KEY\" must be set"
+if [ -z "$INPUT_AWS-SECRET-ACCESS-KEY" ]; then
+  error "\"\$INPUT_AWS-SECRET-ACCESS-KEY\" must be set"
   exit 1
 fi
 
@@ -59,6 +59,10 @@ fi
 
 # If we've come this far, we're all good in terms of required vars!
 success "Required environment variables OK"
+
+# Set AWS credentials so the CLI can find them
+export AWS_ACCESS_KEY_ID=$INPUT_AWS-ACCESS-KEY-ID
+export AWS_SECRET_ACCESS_KEY=$INPUT_AWS-SECRET-ACCESS-KEY
 
 # Apply defaults to optional parameters which we'll be using either way
 export AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID:-721636788304}
