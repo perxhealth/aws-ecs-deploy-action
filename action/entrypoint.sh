@@ -81,7 +81,7 @@ h1 "Preflight Step 2: Prepare task definition"
 
 info "before"
 export TASK_DEFINITION=$INPUT_TASK-DEFINITION
-cp $TASK_DEFINITION /work/task-definition.tpl.json
+cp "$TASK_DEFINITION" /work/task-definition.tpl.json
 info "before"
 success "Task definition prepared OK"
 
