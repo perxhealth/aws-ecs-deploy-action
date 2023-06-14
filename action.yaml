@@ -37,6 +37,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ env.AWS_ACCESS_KEY_ID }}
+    - ${{ env.AWS_SECRET_ACCESS_KEY }}
     - ${{ inputs.perx-env }}
     - ${{ inputs.perx-region }}
     - ${{ inputs.perx-app-name }}

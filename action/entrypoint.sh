@@ -85,7 +85,7 @@ success "Task definition prepared OK"
 # ----- Prepare final environment -----
 h1 "Preflight Step 3: Prepare final environment"
 export APP_NAME=$INPUT_PERX-APP-NAME
-export IMAGE_NAME=651180711168.dkr.ecr.$ECR_REGION.amazonaws.com/$INPUT_IMAGE-NAME:$INPUT_IMAGE-TAG
+export IMAGE_NAME=651180711168.dkr.ecr.$ECR_REGION.amazonaws.com/$APP_NAME:$INPUT_IMAGE-TAG
 success "Final environment prepared OK"
 
 # ----- Start deployment -----
