@@ -56,8 +56,6 @@ fi
 success "Required environment variables OK"
 
 # Apply defaults to optional parameters which we'll be using either way
-export AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID:-721636788304}
-export AWS_ACCOUNT_NAME=${AWS_ACCOUNT_NAME:-nonprod}
 export AWS_REGION=${AWS_REGION:=$AWS_DEFAULT_REGION}
 export CLUSTER_NAME=${CLUSTER_NAME:=$INPUT_PERX_ENV}
 export ECR_REGION=${ECR_REGION:=ap-southeast-2}
