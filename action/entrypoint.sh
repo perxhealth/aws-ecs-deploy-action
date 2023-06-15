@@ -79,10 +79,8 @@ h1 "Preflight Step 2: Prepare task definition"
 # that the following env vars are present FARGATE_CPU_SIZE, FARGATE_MEMORY_SIZE,
 # CONTAINER_PORT etc
 
-info "before"
-export TASK_DEFINITION=$INPUT_TASK-DEFINITION
+export TASK_DEFINITION="/github/workspace/$INPUT_TASK-DEFINITION"
 cp "$TASK_DEFINITION" /work/task-definition.tpl.json
-info "before"
 success "Task definition prepared OK"
 
 # ----- Prepare final environment -----
