@@ -32,11 +32,6 @@ if [ -z "$INPUT_TASK_DEFINITION" ]; then
   exit 1
 fi
 
-if [ -z "$INPUT_IMAGE_NAME" ]; then
-  error "\"\$INPUT_IMAGE_NAME\" must be set"
-  exit 1
-fi
-
 if [ -z "$INPUT_IMAGE-TAG" ]; then
   error "\"\$INPUT_IMAGE_TAG\" must be set"
   exit 1
