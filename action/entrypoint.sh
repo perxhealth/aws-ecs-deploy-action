@@ -32,18 +32,18 @@ if [ -z "$INPUT_TASK_DEFINITION" ]; then
   exit 1
 fi
 
-if [ -z "$INPUT_IMAGE-TAG" ]; then
+if [ -z "$INPUT_IMAGE_TAG" ]; then
   error "\"\$INPUT_IMAGE_TAG\" must be set"
   exit 1
 fi
 
-if [ -z "$INPUT_AWS_ACCESS_KEY_ID" ]; then
-  error "\"\$INPUT_AWS_ACCESS_KEY_ID\" must be set"
+if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+  error "\"\$AWS_ACCESS_KEY_ID\" must be set"
   exit 1
 fi
 
-if [ -z "$INPUT_AWS_SECRET_ACCESS_KEY" ]; then
-  error "\"\$INPUT_AWS_SECRET_ACCESS_KEY\" must be set"
+if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
+  error "\"\$AWS_SECRET_ACCESS_KEY\" must be set"
   exit 1
 fi
 
