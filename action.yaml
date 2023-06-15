@@ -34,6 +34,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - TEST_ONE_TWO: ${{ inputs.perx-env }}
     - ${{ inputs.perx-env }}
     - ${{ inputs.perx-region }}
     - ${{ inputs.perx-app-name }}
