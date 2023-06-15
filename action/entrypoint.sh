@@ -12,43 +12,43 @@ info "Getting things started..."
 # ----- Check preflight variables -----
 h1 "Preflight Step 1: Checking preflight environment variables"
 
-if [ -z "$INPUT_PERX-ENV" ]; then
-  error "\"\$INPUT_PERX-ENV\" must be set"
+if [ -z "$INPUT_PERX_ENV" ]; then
+  error "\"\$INPUT_PERX_ENV\" must be set"
   exit 1
 fi
 
-if [ -z "$INPUT_PERX-REGION" ]; then
-  error "\"\$INPUT_PERX-REGION\" must be set"
+if [ -z "$INPUT_PERX_REGION" ]; then
+  error "\"\$INPUT_PERX_REGION\" must be set"
   exit 1
 fi
 
-if [ -z "$INPUT_PERX-APP-NAME" ]; then
-  error "\"\$INPUT_PERX-APP-NAME\" must be set"
+if [ -z "$INPUT_PERX_APP_NAME" ]; then
+  error "\"\$INPUT_PERX_APP_NAME\" must be set"
   exit 1
 fi
 
-if [ -z "$INPUT_TASK-DEFINITION" ]; then
-  error "\"\$INPUT_TASK-DEFINITION\" must be set"
+if [ -z "$INPUT_TASK_DEFINITION" ]; then
+  error "\"\$INPUT_TASK_DEFINITION\" must be set"
   exit 1
 fi
 
-if [ -z "$INPUT_IMAGE-NAME" ]; then
-  error "\"\$INPUT_IMAGE-NAME\" must be set"
+if [ -z "$INPUT_IMAGE_NAME" ]; then
+  error "\"\$INPUT_IMAGE_NAME\" must be set"
   exit 1
 fi
 
 if [ -z "$INPUT_IMAGE-TAG" ]; then
-  error "\"\$INPUT_IMAGE-TAG\" must be set"
+  error "\"\$INPUT_IMAGE_TAG\" must be set"
   exit 1
 fi
 
-if [ -z "$INPUT_AWS-ACCESS-KEY-ID" ]; then
-  error "\"\$INPUT_AWS-ACCESS-KEY-ID\" must be set"
+if [ -z "$INPUT_AWS_ACCESS_KEY_ID" ]; then
+  error "\"\$INPUT_AWS_ACCESS_KEY_ID\" must be set"
   exit 1
 fi
 
-if [ -z "$INPUT_AWS-SECRET-ACCESS-KEY" ]; then
-  error "\"\$INPUT_AWS-SECRET-ACCESS-KEY\" must be set"
+if [ -z "$INPUT_AWS_SECRET_ACCESS_KEY" ]; then
+  error "\"\$INPUT_AWS_SECRET_ACCESS_KEY\" must be set"
   exit 1
 fi
 
@@ -64,7 +64,7 @@ success "Required environment variables OK"
 export AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID:-721636788304}
 export AWS_ACCOUNT_NAME=${AWS_ACCOUNT_NAME:-nonprod}
 export AWS_REGION=${AWS_REGION:=$AWS_DEFAULT_REGION}
-export CLUSTER_NAME=${CLUSTER_NAME:=$INPUT_PERX-ENV}
+export CLUSTER_NAME=${CLUSTER_NAME:=$INPUT_PERX_ENV}
 export ECR_REGION=${ECR_REGION:=ap-southeast-2}
 export CONTAINER_PORT=${CONTAINER_PORT:-4000}
 export FARGATE_CPU_SIZE=${FARGATE_CPU_SIZE:-512}
@@ -79,14 +79,13 @@ h1 "Preflight Step 2: Prepare task definition"
 # that the following env vars are present FARGATE_CPU_SIZE, FARGATE_MEMORY_SIZE,
 # CONTAINER_PORT etc
 
-export TASK_DEFINITION="/github/workspace/${INPUT_TASK-DEFINITION}"
-cp "$TASK_DEFINITION" /work/task-definition.tpl.json
+cp $INPUT_TASK_DEFINITION /work/task-definition.tpl.json
 success "Task definition prepared OK"
 
 # ----- Prepare final environment -----
 h1 "Preflight Step 3: Prepare final environment"
-export APP_NAME=$INPUT_PERX-APP-NAME
-export IMAGE_NAME=651180711168.dkr.ecr.$ECR_REGION.amazonaws.com/$APP_NAME:$INPUT_IMAGE-TAG
+export APP_NAME=$INPUT_PERX_APP_NAME
+export IMAGE_NAME=651180711168.dkr.ecr.$ECR_REGION.amazonaws.com/$APP_NAME:$INPUT_IMAGE_TAG
 success "Final environment prepared OK"
 
 # ----- Start deployment -----

@@ -1,10 +1,12 @@
 name: '"Perx AWS ECS Deploy" for GitHub Actions'
 description: Deploy new builds to AWS ECS, designed for use within Perx Health infrastructure
+
 branding:
   icon: upload-cloud
   color: blue
+
 inputs:
-  perx-env:
+  perx_env:
     type: choice
     description: Nominate the environment in which we're deploying
     required: true
@@ -14,29 +16,29 @@ inputs:
       - demo
       - staging
       - prod
-  perx-region:
+  perx_region:
     type: choice
     description: Nominate the region in which we're deploying
     required: true
     options:
       - au
       - us
-  perx-app-name:
+  perx_app_name:
     description: Unique name of the application which partially forms the ECS task name, amongst other attributes
     required: true
-  task-definition:
+  task_definition:
     description: Path on disk where your ECS Task Definition .tpl.json file can be found
     required: true
-  image-tag:
+  image_tag:
     description: Nominate name with which the image is tagged
     required: true
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - TEST_ONE_TWO: ${{ inputs.perx-env }}
-    - ${{ inputs.perx-env }}
-    - ${{ inputs.perx-region }}
-    - ${{ inputs.perx-app-name }}
-    - ${{ inputs.task-definition }}
-    - ${{ inputs.image-tag }}
+    - ${{ inputs.perx_env }}
+    - ${{ inputs.perx_region }}
+    - ${{ inputs.perx_app_name }}
+    - ${{ inputs.task_definition }}
+    - ${{ inputs.image_tag }}
