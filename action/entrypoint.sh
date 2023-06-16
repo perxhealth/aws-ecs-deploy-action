@@ -97,6 +97,10 @@ success "Final environment prepared OK"
 # ----- Start deployment -----
 h1 "Preflight Step 4: Start deployment"
 
+info "Testing"
+envsubst < /work/task-definition.tpl.json > /work/task-definition.json
+cat /work/task-definition.json
+
 info "Delegating deployment work"
 cd /work
 bash ./deploy.sh
