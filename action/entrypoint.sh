@@ -38,12 +38,17 @@ if [ -z "$INPUT_IMAGE_TAG" ]; then
 fi
 
 if [ -z "$AWS_ACCESS_KEY_ID" ]; then
-  error "\"\$AWS_ACCESS_KEY_ID\" must be set"
+  error "\"\$AWS_ACCESS_KEY_ID\" must be set. Have you assumed a role?"
   exit 1
 fi
 
 if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
-  error "\"\$AWS_SECRET_ACCESS_KEY\" must be set"
+  error "\"\$AWS_SECRET_ACCESS_KEY\" must be set. Have you assumed a role?"
+  exit 1
+fi
+
+if [ -z "$AWS_SESSION_TOKEN" ]; then
+  error "\"\$AWS_SESSION_TOKEN\" must be set. Have you assumed a role?"
   exit 1
 fi
 
@@ -77,8 +82,16 @@ success "Task definition prepared OK"
 
 # ----- Prepare final environment -----
 h1 "Preflight Step 3: Prepare final environment"
-export APP_NAME=$INPUT_PERX_APP_NAME
+
+export AWS_ACCOUNT_ID=721636788304 # TODO: add prod compatibility
+
+export PERX_ENV=$INPUT_PERX_ENV
+export PERX_APP_NAME=$INPUT_PERX_APP_NAME
+export PERX_REGION=$INPUT_PERX_REGION
+
+export APP_NAME=$PERX_APP_NAME
 export IMAGE_NAME=651180711168.dkr.ecr.$ECR_REGION.amazonaws.com/$APP_NAME:$INPUT_IMAGE_TAG
+
 success "Final environment prepared OK"
 
 # ----- Start deployment -----
