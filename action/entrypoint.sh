@@ -84,6 +84,7 @@ success "Task definition prepared OK"
 h1 "Preflight Step 3: Prepare final environment"
 
 export AWS_ACCOUNT_ID=721636788304 # TODO: add prod compatibility
+export AWS_ACCOUNT_NAME=nonprod # TODO: add prod compatibility
 
 export PERX_ENV=$INPUT_PERX_ENV
 export PERX_APP_NAME=$INPUT_PERX_APP_NAME
