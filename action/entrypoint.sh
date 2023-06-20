@@ -68,6 +68,15 @@ export CONTAINER_PORT=${CONTAINER_PORT:-4000}
 export FARGATE_CPU_SIZE=${FARGATE_CPU_SIZE:-512}
 export FARGATE_MEMORY_SIZE=${FARGATE_MEMORY_SIZE:-1024}
 
+# Set AWS_REGION according to the cluster we're
+# deploying in to
+if [[ $CLUSTER_NAME -eq "au" ]]
+then
+  export AWS_REGION="ap-southeast-2"
+else
+  export AWS_REGION="us-east-1"
+fi
+
 success "Optional environment variables OK"
 
 # ----- Prepare task definition -----
