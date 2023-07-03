@@ -62,7 +62,7 @@ success "Required environment variables OK"
 
 # Apply defaults to optional parameters which we'll be using either way
 export AWS_REGION=${AWS_REGION:=$AWS_DEFAULT_REGION}
-export CLUSTER_NAME=${CLUSTER_NAME:=$INPUT_PERX_REGION}
+export CLUSTER_NAME=${CLUSTER_NAME:=$INPUT_PERX_ENV}
 export ECR_REGION=${ECR_REGION:=ap-southeast-2}
 export CONTAINER_PORT=${CONTAINER_PORT:-4000}
 export FARGATE_CPU_SIZE=${FARGATE_CPU_SIZE:-512}
