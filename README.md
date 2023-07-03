@@ -24,7 +24,7 @@ As an example, add the following `step` to a GitHub Actions workflow.
 
 ### Inputs
 
-The Action currently expects five required inputs, and no further optional
+The Action currently expects four required inputs, and no further optional
 inputs.
 
 **NOTE**: Input names are underscores, not hyphenated.
