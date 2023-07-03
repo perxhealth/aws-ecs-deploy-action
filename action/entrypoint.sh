@@ -70,7 +70,7 @@ export FARGATE_MEMORY_SIZE=${FARGATE_MEMORY_SIZE:-1024}
 
 # Set AWS_REGION according to the cluster we're
 # deploying in to
-if [[ $CLUSTER_NAME -eq "au" ]]
+if [[ $INPUT_PERX_REGION -eq "au" ]]
 then
   export AWS_REGION="ap-southeast-2"
 else
