@@ -61,21 +61,14 @@ fi
 success "Required environment variables OK"
 
 # Apply defaults to optional parameters which we'll be using either way
-export AWS_REGION=${AWS_REGION:=$AWS_DEFAULT_REGION}
 export CLUSTER_NAME=${CLUSTER_NAME:=$INPUT_PERX_ENV}
 export ECR_REGION=${ECR_REGION:=ap-southeast-2}
 export CONTAINER_PORT=${CONTAINER_PORT:-4000}
 export FARGATE_CPU_SIZE=${FARGATE_CPU_SIZE:-512}
 export FARGATE_MEMORY_SIZE=${FARGATE_MEMORY_SIZE:-1024}
 
-# Set AWS_REGION according to the cluster we're
-# deploying in to
-if [[ $INPUT_PERX_REGION -eq "au" ]]
-then
-  export AWS_REGION="ap-southeast-2"
-else
-  export AWS_REGION="us-east-1"
-fi
+# Set AWS_REGION as per the supplied Perx region
+export AWS_REGION=$([ $INPUT_PERX_REGION == "au" ] && echo "ap-southeast-2" || echo "us-east-1") 
 
 success "Optional environment variables OK"
 
