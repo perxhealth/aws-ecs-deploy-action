@@ -16,11 +16,10 @@ As an example, add the following `step` to a GitHub Actions workflow.
 - name: 🚀 Deploy QA
   uses: perxhealth/aws-ecs-deploy-action@v1
   with:
-    perx-env: qa
-    perx-region: au
-    perx-app-name: behavioural-science-hacks
-    image-name: behavioural-science-hacks
-    image-tag: latest
+    perx_env: qa
+    perx_region: au
+    perx_app_name: behavioural-science-hacks
+    image_tag: latest
 ```
 
 ### Inputs
@@ -28,26 +27,23 @@ As an example, add the following `step` to a GitHub Actions workflow.
 The Action currently expects five required inputs, and no further optional
 inputs.
 
-1. `perx-env`
+**NOTE**: Input names are underscores, not hyphenated.
+
+1. `perx_env`
 
     Name of the Perx Environment which the deploy will target.
 
-2. `perx-region`
+2. `perx_region`
 
     Name of the Perx Region, representing locations on Earth and data
     sovereignty boundaries where the deploy will live.
 
-3. `perx-app-name`
+3. `perx_app_name`
 
     Name of the application/service itself. This is expected to match the
     application/service's cluster/runner naming convention.
 
-4. `image-name`
-
-    Name of the Docker image which will be pushed up to ECR. This is **not**
-    expected to contain a tag.
-
-5. `image-tag`
+4. `image_tag`
 
     Append a tag to the image name before pushing. This is not optional as we
     do not recommend encouraging a default of `latest`.
@@ -88,5 +84,4 @@ $ cd aws-ecs-deploy-action
 
 ### Testing
 
-At the time of writing, there's no test suite to run. We will be adding test
-coverage soon!
+At the time of writing, there's no test suite to run.
