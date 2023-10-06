@@ -24,10 +24,12 @@ As an example, add the following `step` to a GitHub Actions workflow.
 
 ### Inputs
 
-The Action currently expects four required inputs, and no further optional
-inputs.
+The Action currently expects four required inputs a single
+optional input.
 
-**NOTE**: Input names are underscores, not hyphenated.
+**NOTE**: Input names are snake_case, not kebab-case.
+
+#### Required
 
 1. `perx_env`
 
@@ -47,6 +49,13 @@ inputs.
 
     Append a tag to the image name before pushing. This is not optional as we
     do not recommend encouraging a default of `latest`.
+
+#### Optional
+
+1. `perx_db_env`
+
+    If the application connects to a database, nominate the environment
+    from which credentials are pulled
 
 ### Outputs
 
