@@ -16,6 +16,13 @@ inputs:
       - demo
       - staging
       - prod
+  perx_db_env:
+    type: choice
+    description: Nominate the environment in which the desired database exists
+    required: false
+    options:
+      - dev
+      - prod
   perx_region:
     type: choice
     description: Nominate the region in which we're deploying
@@ -38,6 +45,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.perx_env }}
+    - ${{ inputs.perx_db_env }}
     - ${{ inputs.perx_region }}
     - ${{ inputs.perx_app_name }}
     - ${{ inputs.task_definition }}

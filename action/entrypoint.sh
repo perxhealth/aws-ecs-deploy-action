@@ -89,6 +89,7 @@ export AWS_ACCOUNT_ID=$([ $INPUT_PERX_ENV == "prod" ] && echo "224439067528" || 
 export AWS_ACCOUNT_NAME=$([ $INPUT_PERX_ENV == "prod" ] && echo "prod" || echo "nonprod") 
 
 export PERX_ENV=$INPUT_PERX_ENV
+export PERX_DB_ENV=$INPUT_PERX_DB_ENV
 export PERX_APP_NAME=$INPUT_PERX_APP_NAME
 export PERX_REGION=$INPUT_PERX_REGION
 
