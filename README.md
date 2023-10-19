@@ -24,8 +24,8 @@ As an example, add the following `step` to a GitHub Actions workflow.
 
 ### Inputs
 
-The Action currently expects four required inputs a single
-optional input.
+The Action currently expects some required inputs and
+some optional inputs.
 
 **NOTE**: Input names are snake_case, not kebab-case.
 
@@ -56,6 +56,11 @@ optional input.
 
     If the application connects to a database, nominate the environment
     from which credentials are pulled
+
+2. `image_name`
+
+    Explicitly nominate the image's name (excluding tag) instead of
+    inferring from `perx_app_name`
 
 ### Outputs
 

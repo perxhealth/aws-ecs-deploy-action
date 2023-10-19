@@ -39,6 +39,9 @@ inputs:
   image_tag:
     description: Nominate name with which the image is tagged
     required: true
+  image_name:
+    description: Optionally nominate image name (excluding tag) instead of inferring from app name
+    required: true
 
 runs:
   using: 'docker'
@@ -49,4 +52,5 @@ runs:
     - ${{ inputs.perx_region }}
     - ${{ inputs.perx_app_name }}
     - ${{ inputs.task_definition }}
+    - ${{ inputs.image_name }}
     - ${{ inputs.image_tag }}
