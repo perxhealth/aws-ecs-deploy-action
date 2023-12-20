@@ -28,6 +28,17 @@ checkVariablePresence() {
   fi
 }
 
+function list_contains {
+  local list="$1"
+  local item="$2"
+  if [[ $list =~ (^|[[:space:]])"$item"($|[[:space:]]) ]] ; then
+    present=0
+  else
+    present=1
+  fi
+  return $present
+}
+
 #
 # Common Logging Output
 #

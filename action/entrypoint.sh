@@ -85,8 +85,9 @@ success "Task definition prepared OK"
 # ----- Prepare final environment -----
 h1 "Preflight Step 3: Prepare final environment"
 
-export AWS_ACCOUNT_ID=$([ [ $INPUT_PERX_ENV == "prod" ] || [ $INPUT_PERX_ENV == "staging" ] ] && echo "224439067528" || echo "721636788304") 
-export AWS_ACCOUNT_NAME=$([ [ $INPUT_PERX_ENV == "prod" ] || [ $INPUT_PERX_ENV == "staging" ] ] && echo "prod" || echo "nonprod") 
+IS_PROD_ENV=$(`list_contains "prod staging" $INPUT_PERX_ENV` && echo "yes" || echo "no")
+export AWS_ACCOUNT_ID=$([ $IS_PROD_ENV == "yes" ] && echo "224439067528" || echo "721636788304") 
+export AWS_ACCOUNT_NAME=$([ $IS_PROD_ENV == "yes" ] && echo "prod" || echo "nonprod") 
 
 export PERX_ENV=$INPUT_PERX_ENV
 export PERX_DB_ENV=$INPUT_PERX_DB_ENV
