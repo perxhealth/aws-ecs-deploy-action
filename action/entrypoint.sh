@@ -66,6 +66,7 @@ export ECR_REGION=${ECR_REGION:=ap-southeast-2}
 export CONTAINER_PORT=${CONTAINER_PORT:-4000}
 export FARGATE_CPU_SIZE=${FARGATE_CPU_SIZE:-512}
 export FARGATE_MEMORY_SIZE=${FARGATE_MEMORY_SIZE:-1024}
+export FARGATE_NGINX_MEMORY_SIZE=${FARGATE_MEMORY_SIZE:-256}
 
 # Set AWS_DEFAULT_REGION as per the supplied Perx region
 export AWS_DEFAULT_REGION=$([ $INPUT_PERX_REGION == "au" ] && echo "ap-southeast-2" || echo "us-east-2") 
