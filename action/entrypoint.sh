@@ -83,6 +83,11 @@ h1 "Preflight Step 2: Prepare task definition"
 cp $INPUT_TASK_DEFINITION /work/task-definition.tpl.json
 success "Task definition prepared OK"
 
+if [ "$INPUT_APP_SPEC" ]; then
+  cp $INPUT_APP_SPEC /work/app-spec.tpl.json
+  success "App Spec prepared OK"
+fi
+
 # ----- Prepare final environment -----
 h1 "Preflight Step 3: Prepare final environment"
 

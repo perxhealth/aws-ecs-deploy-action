@@ -36,6 +36,9 @@ inputs:
   task_definition:
     description: Path on disk where your ECS Task Definition .tpl.json file can be found
     required: true
+  app_spec:
+    description: Optionally provide an App Spec .tpl.json file with which Code Deploy updates the service
+    required: false
   image_tag:
     description: Nominate name with which the image is tagged
     required: true
@@ -52,5 +55,6 @@ runs:
     - ${{ inputs.perx_region }}
     - ${{ inputs.perx_app_name }}
     - ${{ inputs.task_definition }}
+    - ${{ inputs.app_spec }}
     - ${{ inputs.image_name }}
     - ${{ inputs.image_tag }}
