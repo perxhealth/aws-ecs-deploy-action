@@ -30,6 +30,7 @@ inputs:
     options:
       - au
       - us
+      - nz
   perx_app_name:
     description: Unique name of the application which partially forms the ECS task name, amongst other attributes
     required: true

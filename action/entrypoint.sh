@@ -69,7 +69,14 @@ export FARGATE_MEMORY_SIZE=${FARGATE_MEMORY_SIZE:-1024}
 export FARGATE_NGINX_MEMORY_SIZE=${FARGATE_MEMORY_SIZE:-256}
 
 # Set AWS_DEFAULT_REGION as per the supplied Perx region
-export AWS_DEFAULT_REGION=$([ $INPUT_PERX_REGION == "au" ] && echo "ap-southeast-2" || echo "us-east-2") 
+case $INPUT_PERX_REGION in
+  "au"|"nz")
+    export AWS_DEFAULT_REGION="ap-southeast-2"
+    ;;
+  *)
+    export AWS_DEFAULT_REGION="us-east-2"
+    ;;
+esac
 
 success "Optional environment variables OK"
 
